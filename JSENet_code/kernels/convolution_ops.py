@@ -25,7 +25,7 @@
 import numpy as np
 import tensorflow as tf
 import sys
-
+tf.ConfigProto().gpu_options.allow_growth = True
 from kernels.kernel_points import load_kernels as create_kernel_points
 
 # ------------------------------------------------------------------------------------------
@@ -235,10 +235,11 @@ def KPConv_ops(query_points,
 
     # Get the features of each neighborhood [n_points, n_neighbors, in_fdim]
     neighborhood_features = tf.gather(features, neighbors_indices, axis=0)
-
+    #print(all_weights.shape,neighborhood_features.shape)
     # Apply distance weights [n_points, n_kpoints, in_fdim]
+    tf.ConfigProto().gpu_options.allow_growth = True
     weighted_features = tf.matmul(all_weights, neighborhood_features)
-
+    #weighted_features = tf.einsum(tf.constant(all_weights),tf.constant(neighborhood_features))
     # Apply network weights [n_kpoints, n_points, out_fdim]
     weighted_features = tf.transpose(weighted_features, [1, 0, 2])
     kernel_outputs = tf.matmul(weighted_features, K_values)

@@ -31,7 +31,7 @@ import cpp_wrappers.cpp_subsampling.grid_subsampling as cpp_subsampling
 from utils.ply import read_ply
 
 # Load custom operation
-tf_neighbors_module = tf.load_op_library('tf_custom_ops/tf_neighbors.so')
+tf_neighbors_module = tf.load_op_library('./tf_custom_ops/tf_neighbors.so')
 tf_batch_neighbors_module = tf.load_op_library('tf_custom_ops/tf_batch_neighbors.so')
 tf_subsampling_module = tf.load_op_library('tf_custom_ops/tf_subsampling.so')
 tf_batch_subsampling_module = tf.load_op_library('tf_custom_ops/tf_batch_subsampling.so')

@@ -27,6 +27,7 @@ import time
 import os
 import sys
 
+
 # Custom libs
 from utils.config import Config
 from utils.trainer import ModelTrainer
@@ -62,7 +63,7 @@ class S3DISConfig(Config):
     network_model = None
 
     # Number of CPU threads for the input pipeline
-    input_threads = 8
+    input_threads = 2
 
     #########################
     # Architecture definition
@@ -133,13 +134,13 @@ class S3DISConfig(Config):
     grad_clip_norm = 100.0
 
     # Number of batch
-    batch_num = 4
+    batch_num = 2
 
     # Number of steps per epochs (cannot be None for this dataset)
     epoch_steps = 300
 
     # Number of validation examples per epoch
-    validation_size = 50
+    validation_size = 20
 
     # Number of epoch between each snapshot
     snapshot_gap = 25
@@ -183,7 +184,7 @@ if __name__ == '__main__':
 
     # Enable/Disable warnings (set level to '0'/'3')
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
-
+    os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
     ###########################
     # Load the model parameters
     ###########################

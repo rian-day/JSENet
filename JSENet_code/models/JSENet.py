@@ -95,6 +95,7 @@ class JSENet:
 
             # Dropout placeholder
             self.dropout_prob = tf.placeholder(tf.float32, name='dropout_prob')
+            print(self.inputs)
 
 
         ########

@@ -130,7 +130,7 @@ class S3DISDataset(Dataset):
         ##########################
 
         # Path of the folder containing ply files
-        self.path = 'Data/S3DIS'
+        self.path = '/home/dgfs/hyh/data/S3DIS'
 
         # Path of the training files
         self.train_path = 'original_ply'
@@ -159,7 +159,7 @@ class S3DISDataset(Dataset):
         t0 = time.time()
 
         # Folder for the ply files
-        ply_path = join(self.path, self.train_path)
+        ply_path = join(self.path, self.train_path) #/data/S3DIS/original_ply
         if not exists(ply_path):
             makedirs(ply_path)
 

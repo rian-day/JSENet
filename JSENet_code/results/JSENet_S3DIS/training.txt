@@ -1,0 +1,1 @@
+Steps loss_edge_coarse loss_edge_s0 loss_edge_s1 loss_region_coarse loss_region_s0 loss_region_s1 loss_efr_s0 loss_efr_s1 loss_side reg_loss time memory

@@ -63,6 +63,8 @@ class ModelTrainer:
         else:
             cProto = tf.ConfigProto()
             cProto.gpu_options.allow_growth = True
+        cProto.gpu_options.per_process_gpu_memory_fraction = 1.0  # 程序最多只能占用指定gpu50%的显存
+        cProto.gpu_options.allow_growth = True
         self.sess = tf.Session(config=cProto)
 
         # Init variables
